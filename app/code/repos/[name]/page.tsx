@@ -1,4 +1,5 @@
 import Repo from '@/app/components/Repo';
+import RepoDirs from '@/app/components/RepoDirs';
 import Link from 'next/link';
 import React from 'react';
 
@@ -14,6 +15,7 @@ const RepoPage = ({ params: { name } }: RepoPageProps) => {
 				Back to Reposotories
 			</Link>
 			<Repo name={name} />
+			<RepoDirs name={name} />
 		</div>
 	);
 };
