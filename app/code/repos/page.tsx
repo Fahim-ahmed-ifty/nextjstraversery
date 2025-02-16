@@ -13,7 +13,12 @@ interface Repo {
 
 async function fetchRepos(): Promise<Repo[]> {
 	const response = await fetch(
-		'https://api.github.com/users/fahim-ahmed-ifty/repos'
+		'https://api.github.com/users/fahim-ahmed-ifty/repos',
+		{
+			next: {
+				revalidate: 60
+			}
+		}
 	);
 
 	await new Promise(resolve => setTimeout(resolve, 1000));
