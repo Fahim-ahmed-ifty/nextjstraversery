@@ -16,7 +16,12 @@ async function fetchRepoContents({
 	await new Promise(resolve => setTimeout(resolve, 3000));
 
 	const response = await fetch(
-		`https://api.github.com/repos/fahim-ahmed-ifty/${name}/contents`
+		`https://api.github.com/repos/fahim-ahmed-ifty/${name}/contents`,
+		{
+			next: {
+				revalidate: 60
+			}
+		}
 	);
 
 	if (!response.ok) {

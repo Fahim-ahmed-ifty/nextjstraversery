@@ -7,7 +7,12 @@ interface RepoProps {
 
 async function fetchRepo({ name }: RepoProps) {
 	const response = await fetch(
-		`https://api.github.com/repos/fahim-ahmed-ifty/${name}`
+		`https://api.github.com/repos/fahim-ahmed-ifty/${name}`,
+		{
+			next: {
+				revalidate: 60
+			}
+		}
 	);
 	const repo = await response.json();
 	return repo;
