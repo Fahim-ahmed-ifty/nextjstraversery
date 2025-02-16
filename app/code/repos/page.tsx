@@ -15,6 +15,9 @@ async function fetchRepos(): Promise<Repo[]> {
 	const response = await fetch(
 		'https://api.github.com/users/fahim-ahmed-ifty/repos'
 	);
+
+	await new Promise(resolve => setTimeout(resolve, 1000));
+
 	const repos: Repo[] = await response.json();
 	return repos;
 }
